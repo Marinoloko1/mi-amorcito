@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Registrar</title>
+    <style>
+        body {
+            background-image: url(fondo.jpg);
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    
+        .wrapper {
+            position: relative;
+            top: 5vh;
+            width: 90%; /* Cambia la anchura para que sea relativa */
+            max-width: 350px; /* Limita la anchura máxima en pantallas más grandes */
+            margin: 0 auto;
+            border: 1px solid rgb(241, 241, 241);
+            border-radius: 12px;
+            padding: 10px 20px;
+            background: transparent;
+            backdrop-filter: blur(8px);
+            box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.5);
+            color: #fff;
+        }
+    
+        .wrapper h2 {
+            font-size: 5vw; /* Escala con el ancho de la pantalla */
+            color: #fffefe;
+            text-align: center; /* Alineación central en pantallas pequeñas */
+        }
+    
+        .input-field input[type="text"],
+        .input-field input[type="password"] {
+            border-radius: 10px;
+            background: transparent;
+            margin: 15px 0;
+            border: 2px solid rgb(255, 255, 255);
+            width: 100%; /* Asegura que ocupe el 100% del contenedor */
+            padding: 15px;
+            backdrop-filter: blur(15px);
+        }
+    
+        .input-field i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            color: rgb(252, 252, 252);
+        }
+    
+        input::placeholder {
+            color: rgb(255, 255, 255);
+        }
+    
+        a.forgot, a.loginButton {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.712);
+            display: block;
+            text-align: center; /* Centra el texto en pantallas pequeñas */
+        }
+    
+        a.forgot:hover, a.loginButton:hover {
+            text-decoration: underline;
+            color: #fffffffd;
+        }
+    
+        .wrapper .registrar {
+            background: #ffffff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: 45px;
+            width: 80%; /* Relativo al tamaño del contenedor */
+            max-width: 200px; /* Limita el tamaño máximo */
+            height: 40px; 
+            color: #000000;
+            display: block; 
+            margin: 20px auto;
+        }
+    
+        @media (max-width: 400) {
+            .wrapper h2 {
+                font-size: 20px; 
+            }
+    
+            .input-field input[type="text"],
+            .input-field input[type="password"] {
+                padding: 10px 15px; 
+            }
+            
+            .wrapper .registrar {
+                width: 100%; /* Ocupa todo el ancho disponible en pantallas pequeñas */
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Bienvenida mi amor</h2>
+        <form id="loginForm">
+            <div class="input-field">
+                <label for="uname"><b>Usuario</b></label>
+                <input type="text" placeholder="Ingresa tu apodo" name="uname" required>
+                <label for="psw"><b>Contraseña</b></label>
+                <input type="password" placeholder="Ingresa nuestro aniversario" name="psw" required>
+                <br><br>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Recordarme
+                </label>
+                <br><br>
+                <button type="submit" id="loginButton" class="registrar">Iniciar Sesión</button>
+                <button type="button" class="registrar">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    <script src="login.js"></script>
+</body>
+
+</html>
