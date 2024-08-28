@@ -7,7 +7,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     const password = document.querySelector('input[name="psw"]').value;
 
     // Validar los datos ingresados  
-    if (username === "vero" && password === "28/06/2024") {
+    if (username === "Soy tu princesa" && password === "28/06/2024") {
         alert("Inicio de sesión exitoso. ¡Bienvenida, Amorcito!");
         // Redirigir al usuario a la página 
         window.location.replace("Login/index.html", "_blank");
