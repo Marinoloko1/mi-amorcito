@@ -413,7 +413,7 @@
        <p class="timetext time_full">3:46</p>
      </div>
      <audio id="audioPlayer" autoplay loop style="display:none;">
-        <source src="Labios de Cereza 2.mp3" type="audio/mp3">
+        <source src="Labios_de_Cereza_2.mp3" type="audio/mp3">
         Tu navegador no soporta el elemento de audio.
     </audio>
     <script>
@@ -422,7 +422,7 @@
         // Verifica si hay un tiempo guardado en el localStorage
         if (localStorage.getItem("audioTime")) {
             audio.currentTime = localStorage.getItem("audioTime");
-            audio.play();  // Reanudar la reproducción desde el último tiempo guardado
+            audio.play(); // Reanudar la reproducción desde el último tiempo guardado
         }
     
         // Guardar la posición del audio cada vez que cambia
@@ -430,11 +430,12 @@
             localStorage.setItem("audioTime", audio.currentTime);
         });
     
-        // Marcar cuando el audio se detenga (esto también podría ser útil para "pausar" el audio)
+        // Marcar cuando el audio se detenga
         audio.addEventListener("pause", function() {
             localStorage.setItem("audioPlaying", "false");
         });
     </script>
+    
     
     
     
