@@ -24,7 +24,7 @@
         .wrapper {
             position: relative;
             top: 5vh;
-            width: 90%; /* Cambia la anchura para que sea relativa */
+            width: 50%; /* Cambia la anchura para que sea relativa */
             max-width: 350px; /* Limita la anchura máxima en pantallas más grandes */
             margin: 0 auto;
             border: 1px solid rgb(241, 241, 241);
@@ -36,8 +36,8 @@
             color: #fff;
         }
     
-        .wrapper h2 {
-            font-size: 5vw; /* Escala con el ancho de la pantalla */
+        .wrapper h1 {
+            font-size: 3vw; /* Escala con el ancho de la pantalla */
             color: #fffefe;
             text-align: center; /* Alineación central en pantallas pequeñas */
         }
@@ -48,7 +48,7 @@
             background: transparent;
             margin: 15px 0;
             border: 2px solid rgb(255, 255, 255);
-            width: 100%; /* Asegura que ocupe el 100% del contenedor */
+            width: 90%; /* Asegura que ocupe el 100% del contenedor */
             padding: 15px;
             backdrop-filter: blur(15px);
         }
@@ -91,6 +91,51 @@
             display: block; 
             margin: 20px auto;
         }
+        /* From Uiverse.io by Navarog21 */ 
+        button {
+        width: 10em;
+        position: relative;
+        height: 3.5em;
+        border: 3px ridge #00C4FF;
+        outline: none;
+        background-color: transparent;
+        color: white;
+        transition: 1s;
+        border-radius: 0.3em;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        }
+
+        button::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 3%;
+        width: 95%;
+        height: 40%;
+        transition: 0.5s;
+        transform-origin: center;
+        }
+
+        button::before {
+        content: "";
+        transform-origin: center;
+        position: absolute;
+        top: 80%;
+        left: 3%;
+        width: 95%;
+        height: 40%;
+        transition: 0.5s;
+        }
+
+        button:hover::before, button:hover::after {
+        transform: scale(0)
+        }
+
+        button:hover {
+        box-shadow: inset 0px 0px 25px #00C4FF;
+        }
     
         @media (max-width: 400) {
             .wrapper h2 {
@@ -112,7 +157,7 @@
 
 <body>
     <div class="wrapper">
-        <h2>Bienvenida mi amor</h2>
+        <h1>Bienvenida mi amor</h1>
         <form id="loginForm">
             <div class="input-field">
                 <label for="uname"><b>Usuario</b></label>
