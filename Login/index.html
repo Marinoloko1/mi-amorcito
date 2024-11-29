@@ -26,7 +26,36 @@
 </style>
 <body>
 	
-
+	<audio id="audioPlayer" autoplay loop style="display:none;">
+		<source src="Labios de Cereza 2.mp3" type="audio/mp3">
+		Tu navegador no soporta el elemento de audio.
+	</audio>
+	<script>
+		var audio = document.getElementById("audioPlayer");
+	
+		// Verifica si hay un tiempo guardado en el localStorage
+		if (localStorage.getItem("audioTime")) {
+			audio.currentTime = localStorage.getItem("audioTime");
+			audio.play();  // Reanudar la reproducción desde el último tiempo guardado
+		}
+	
+		// Si el audio estaba en reproducción, asegurarse de que siga sonando
+		if(localStorage.getItem("audioPlaying") === "true") {
+			audio.play();
+		}
+	
+		// Guardar la posición del audio
+		audio.addEventListener('timeupdate', function() {
+			localStorage.setItem("audioTime", audio.currentTime);
+		});
+	
+		// Cuando el audio se pause, marcarlo en el localStorage
+		audio.addEventListener("pause", function() {
+			localStorage.setItem("audioPlaying", "false");
+		});
+	</script>
+	
+	
 	<div class="blanketBody"></div>
 
 	<div class="control-actions">
