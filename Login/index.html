@@ -25,6 +25,7 @@
         }
 </style>
 <body>
+
 	
 	<audio id="audioPlayer" autoplay loop style="display:none;">
 		<source src="Labios de Cereza 2.mp3" type="audio/mp3">
@@ -32,26 +33,30 @@
 	</audio>
 	<script>
 		var audio = document.getElementById("audioPlayer");
-	
-		// Verifica si hay un tiempo guardado en el localStorage
+
+		// Verificar si hay un tiempo guardado y reproducir desde ese punto
 		if (localStorage.getItem("audioTime")) {
 			audio.currentTime = localStorage.getItem("audioTime");
-			audio.play();  // Reanudar la reproducción desde el último tiempo guardado
 		}
-	
-		// Si el audio estaba en reproducción, asegurarse de que siga sonando
-		if(localStorage.getItem("audioPlaying") === "true") {
+
+		// Reanudar audio si estaba en reproducción
+		if (localStorage.getItem("audioPlaying") === "true") {
 			audio.play();
 		}
-	
-		// Guardar la posición del audio
-		audio.addEventListener('timeupdate', function() {
+
+		// Guardar la posición del audio cada segundo
+		audio.addEventListener('timeupdate', function () {
 			localStorage.setItem("audioTime", audio.currentTime);
 		});
-	
-		// Cuando el audio se pause, marcarlo en el localStorage
-		audio.addEventListener("pause", function() {
+
+		// Guardar el estado cuando se pausa
+		audio.addEventListener('pause', function () {
 			localStorage.setItem("audioPlaying", "false");
+		});
+
+		// Guardar el estado cuando se reproduce
+		audio.addEventListener('play', function () {
+			localStorage.setItem("audioPlaying", "true");
 		});
 	</script>
 	

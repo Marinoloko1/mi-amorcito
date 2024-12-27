@@ -8,7 +8,7 @@
 .experience__item img{
     width: 200px; /* Tamaño deseado de las imágenes */
     height: auto; /* Para mantener la proporción de la imagen */
-    border: 2px solid rgb(255, 255, 255); /* Borde de 2px sólido negro */
+    border: 2px solid rgb(217, 0, 255); /* Borde de 2px sólido negro */
     margin-left: 36%; /* Espacio entre las imágenes */
 
 }

@@ -412,32 +412,46 @@
        <p class="timetext time_now">1:31</p>
        <p class="timetext time_full">3:46</p>
      </div>
-     <audio id="audioPlayer" autoplay loop style="display:none;">
-        <source src="Labios_de_Cereza_2.mp3" type="audio/mp3">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
-    <script>
-        var audio = document.getElementById("audioPlayer");
+     <a href="#" id="audioLink">Haz clic para reproducir el audio</a>
+    <audio id="audioPlayer" src="Labios de Cereza 2.mp3"></audio>
     
-        // Verifica si hay un tiempo guardado en el localStorage
+    <script>
+        const audioLink = document.getElementById('audioLink');
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        audioLink.addEventListener('click', (event) => {
+            event.preventDefault(); 
+            audioPlayer.play(); 
+        });
+
+        var audio = document.getElementById("audioPlayer");
+
+        // Verificar si hay un tiempo guardado y reproducir desde ese punto
         if (localStorage.getItem("audioTime")) {
             audio.currentTime = localStorage.getItem("audioTime");
-            audio.play(); // Reanudar la reproducción desde el último tiempo guardado
         }
-    
-        // Guardar la posición del audio cada vez que cambia
-        audio.addEventListener('timeupdate', function() {
+
+        // Reanudar audio si estaba en reproducción
+        if (localStorage.getItem("audioPlaying") === "true") {
+            audio.play();
+        }
+
+        // Guardar la posición del audio cada segundo
+        audio.addEventListener('timeupdate', function () {
             localStorage.setItem("audioTime", audio.currentTime);
         });
-    
-        // Marcar cuando el audio se detenga
-        audio.addEventListener("pause", function() {
+
+        // Guardar el estado cuando se pausa
+        audio.addEventListener('pause', function () {
             localStorage.setItem("audioPlaying", "false");
         });
+
+        // Guardar el estado cuando se reproduce
+        audio.addEventListener('play', function () {
+            localStorage.setItem("audioPlaying", "true");
+        });
+
     </script>
-    
-    
-    
     
     <div class="wrapper">
         <h1>Bienvenida mi amor</h1>
