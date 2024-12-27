@@ -91,51 +91,54 @@
             display: block; 
             margin: 20px auto;
         }
-        /* From Uiverse.io by Navarog21 */ 
+        /* From Uiverse.io by mrhyddenn */ 
         button {
-            width: 10em;
-            position: relative;
-            height: 3.5em;
-            border: 3px ridge #00C4FF;
-            outline: none;
-            background-color: transparent;
-            color: white;
-            transition: 1s;
-            border-radius: 0.3em;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        button::after {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: 3%;
-            width: 95%;
-            height: 40%;
-            transition: 0.5s;
-            transform-origin: center;
+        background: transparent;
+        color: #fff;
+        font-size: 17px;
+        text-transform: uppercase;
+        font-weight: 600;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        perspective: 30rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.308);
         }
 
         button::before {
-            content: "";
-            transform-origin: center;
-            position: absolute;
-            top: 80%;
-            left: 3%;
-            width: 95%;
-            height: 40%;
-            transition: 0.5s;
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 10px;
+        background: linear-gradient(
+            320deg,
+            rgba(0, 140, 255, 0.678),
+            rgba(128, 0, 128, 0.308)
+        );
+        z-index: 1;
+        transition: background 3s;
         }
 
-        button:hover::before, button:hover::after {
-            transform: scale(0)
+        button:hover::before {
+        animation: rotate 1s;
+        transition: all 0.5s;
         }
 
-        button:hover {
-            box-shadow: inset 0px 0px 25px #00C4FF;
+        @keyframes rotate {
+        0% {
+            transform: rotateY(180deg);
         }
+
+        100% {
+            transform: rotateY(360deg);
+        }
+        }
+
     
         @media (max-width: 400) {
             .wrapper h2 {
@@ -359,6 +362,7 @@
             transform: scaleY(0.1);
         }
         }
+
     </style>
     
 </head>
@@ -412,8 +416,13 @@
        <p class="timetext time_now">1:31</p>
        <p class="timetext time_full">3:46</p>
      </div>
-     <a href="#" id="audioLink" style="color: white">Haz clic para reproducir el audio</a>
-    <audio id="audioPlayer" src="Labios de Cereza 2.mp3"></audio>
+     
+    <button>
+        <a href="#" id="audioLink" style="color: #ffffff;">Haz clic para reproducir el audio</a>
+        <audio id="audioPlayer" src="Labios de Cereza 2.mp3"></audio>
+    </button>
+
+    
     
     <script>
         const audioLink = document.getElementById('audioLink');
