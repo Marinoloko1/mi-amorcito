@@ -12,20 +12,41 @@
 </head>
 <style>
 	body {
-            background-image: url(fondo.jpg);
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url(fondo.jpg);
+}
+
+#background-video {
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translate(-50%, 0); 
+    width: 70%; 
+    height: auto; 
+    object-fit: cover;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    color: white;
+    text-align: center;
+    z-index: 1;
+}
+
+
 </style>
 <body>
-
+	<video autoplay muted loop id="background-video">
+        <source src="fondo.mp4" type="video/mp4">
+        Tu navegador no soporta videos.
+    </video>
 	
 	<audio id="audioPlayer" autoplay loop style="display:none;">
 		<source src="Labios de Cereza 2.mp3" type="audio/mp3">
